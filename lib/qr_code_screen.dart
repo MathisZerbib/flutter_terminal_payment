@@ -82,14 +82,12 @@ class QrCodeScreenState extends State<QrCodeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
-                      onPressed: () => scanBarcodeNormal(),
-                      child: const Text('Start barcode scan')),
-                  ElevatedButton(
                       onPressed: () => scanQR(),
                       child: const Text('Start QR scan')),
                   ElevatedButton(
                       onPressed: () => startBarcodeScanStream(),
-                      child: const Text('Start barcode scan stream')),
+                      child: const Text('Start a stream scan')),
+                  const SizedBox(height: 20),
                   Text('Scan result : $_scanBarcode\n',
                       style: const TextStyle(fontSize: 20))
                 ],
