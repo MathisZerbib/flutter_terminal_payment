@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/product_list.dart';
+import 'package:flutter_application_test/nfc_reader_screen.dart';
 import 'package:flutter_application_test/provider/cart_provider.dart';
+import 'package:flutter_application_test/qr_code_screen.dart';
 import 'package:flutter_application_test/setup_server.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class PaymentChoose extends StatelessWidget {
+  const PaymentChoose({super.key});
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -17,11 +14,11 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return MaterialApp(
-            title: 'Cash Manager',
+            title: 'Flutter Demo',
             theme: ThemeData(
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.blue,
             ),
-            home: const MyHomePage(title: 'Home'),
+            home: const PaymentChoosePage(title: 'Home'),
           );
         },
       ),
@@ -29,16 +26,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class PaymentChoosePage extends StatefulWidget {
   final String title;
 
-  const MyHomePage({super.key, required this.title});
+  const PaymentChoosePage({super.key, required this.title});
 
   @override
-  MyHomePageState createState() => MyHomePageState();
+  PaymentChoosePageState createState() => PaymentChoosePageState();
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class PaymentChoosePageState extends State<PaymentChoosePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,11 +63,20 @@ class MyHomePageState extends State<MyHomePage> {
                 onPressed: (() => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ProductList()))),
+                        builder: (context) => const QrCodeScreen()))),
                 child: const Text(
-                  'Start shopping!',
+                  'QrCode',
                 ),
-              )
+              ),
+              ElevatedButton(
+                onPressed: (() => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NfcReaderScreen()))),
+                child: const Text(
+                  'NFC',
+                ),
+              ),
             ]),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

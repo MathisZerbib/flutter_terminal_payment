@@ -44,6 +44,16 @@ class QrCodeScreenState extends State<QrCodeScreen> {
     setState(() {
       _scanBarcode = barcodeScanRes;
     });
+    _onPay;
+  }
+
+  void _onPay() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Payment Successful'),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

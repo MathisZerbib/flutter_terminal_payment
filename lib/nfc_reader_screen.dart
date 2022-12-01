@@ -63,22 +63,23 @@ class NfcReaderScreenState extends State<NfcReaderScreen> {
                           childAspectRatio: 4,
                           children: [
                             ElevatedButton(
-                                onPressed: _tagRead,
-                                child: RichText(
-                                  text: const TextSpan(
-                                    children: [
-                                      TextSpan(text: 'Pay with Nfc '),
-                                      WidgetSpan(
-                                        alignment: PlaceholderAlignment.middle,
-                                        child: Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 5.0),
-                                          child: Icon(Icons.credit_card),
-                                        ),
+                              onPressed: _tagRead,
+                              child: RichText(
+                                text: const TextSpan(
+                                  children: [
+                                    TextSpan(text: 'Pay with Nfc '),
+                                    WidgetSpan(
+                                      alignment: PlaceholderAlignment.middle,
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 5.0),
+                                        child: Icon(Icons.credit_card),
                                       ),
-                                    ],
-                                  ),
-                                )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -95,6 +96,9 @@ class NfcReaderScreenState extends State<NfcReaderScreen> {
       result.value = tag.data;
       NfcManager.instance.stopSession();
     });
+    if (result.value != null) {
+      print(result.value);
+    }
   }
 
   NdefMessage message = NdefMessage([
