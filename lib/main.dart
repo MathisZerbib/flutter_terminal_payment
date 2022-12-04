@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         builder: (context) {
           return MaterialApp(
             title: 'Cash Manager',
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.green,
             ),

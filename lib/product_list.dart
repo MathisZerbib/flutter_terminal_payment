@@ -136,7 +136,7 @@ class _ProductListState extends State<ProductList> {
                 ),
               ],
             ),
-            body: Center(child: Text('No Products Available')),
+            body: const Center(child: Text('No Products Available')),
           )
         : Scaffold(
             appBar: AppBar(
