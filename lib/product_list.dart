@@ -76,7 +76,6 @@ class _ProductListState extends State<ProductList> {
           .then((value) {
         cart.addTotalPrice(products[index].price.toDouble());
         cart.addCounter();
-        products.removeWhere((item) => item.name == products[index].name);
         print('Product Added to cart');
         print(value.id);
       }).onError((error, stackTrace) {
