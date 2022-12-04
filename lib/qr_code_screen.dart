@@ -80,31 +80,29 @@ class QrCodeScreenState extends State<QrCodeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Barcode scan')),
-        body: Builder(
-          builder: (BuildContext context) {
-            return Container(
-              alignment: Alignment.center,
-              child: Flex(
-                direction: Axis.vertical,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                      onPressed: () => scanQR(),
-                      child: const Text('Start QR scan')),
-                  ElevatedButton(
-                      onPressed: () => startBarcodeScanStream(),
-                      child: const Text('Start a stream scan')),
-                  const SizedBox(height: 20),
-                  Text('Scan result : $_scanBarcode\n',
-                      style: const TextStyle(fontSize: 20))
-                ],
-              ),
-            );
-          },
-        ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Barcode scan')),
+      body: Builder(
+        builder: (BuildContext context) {
+          return Container(
+            alignment: Alignment.center,
+            child: Flex(
+              direction: Axis.vertical,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                    onPressed: () => scanQR(),
+                    child: const Text('Start QR scan')),
+                ElevatedButton(
+                    onPressed: () => startBarcodeScanStream(),
+                    child: const Text('Start a stream scan')),
+                const SizedBox(height: 20),
+                Text('Scan result : $_scanBarcode\n',
+                    style: const TextStyle(fontSize: 20))
+              ],
+            ),
+          );
+        },
       ),
     );
   }

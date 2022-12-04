@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.green,
             ),
-            home: const MyHomePage(title: 'Home'),
+            home: const MyHomePage(title: 'Cash-Manager'),
           );
         },
       ),
@@ -69,7 +69,7 @@ class MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(
                         builder: (context) => const ProductList()))),
                 child: const Text(
-                  'Start shopping!',
+                  'Open a new bill!',
                 ),
               )
             ]),

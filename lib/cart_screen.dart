@@ -44,8 +44,13 @@ class _CartScreenState extends State<CartScreen> {
             ),
             position: const BadgePosition(start: 30, bottom: 30),
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PaymentChoosePage()));
+              },
+              icon: const Icon(Icons.payment),
             ),
           ),
           const SizedBox(
@@ -236,8 +241,10 @@ class _CartScreenState extends State<CartScreen> {
       ),
       bottomNavigationBar: InkWell(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PaymentChoose()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PaymentChoosePage()));
         },
         child: Container(
           color: Colors.yellow.shade600,
